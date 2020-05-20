@@ -1,0 +1,12 @@
+int Solution::maxSubArray(const vector<int> &a) {int n=a.size();int neg=0;int negmax=INT_MIN;
+                                     
+                                        int maxim=0;int sum=0;
+        for(int i=0;i<n;i++)
+        { if(a[i]<0){neg++;negmax=max(negmax,a[i]);}
+          sum=max(0,sum+a[i]);
+         maxim=max(maxim,sum);
+        }
+                                     if(neg==n){return negmax;}
+                                     else
+        return maxim;
+}
