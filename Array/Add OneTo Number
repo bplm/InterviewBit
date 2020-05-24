@@ -1,0 +1,24 @@
+vector<int> Solution::plusOne(vector<int> &A) {int n=A.size();vector<int> temp;
+int carry=1;vector<int> res;
+if(n==1 && A[0]<9)
+{ res.push_back(A[0]+1);
+  return res;
+}
+ for(int i=n-1;i>=0;i--)
+ { int currsum=carry+A[i];
+   temp.push_back(currsum%10);
+    carry=currsum/10;
+ }
+  if(carry>0)
+  {temp.push_back(carry);}
+   int len=temp.size();
+   while(true)
+   { if(temp[len-1]==0)
+     {len--;}
+     else
+     { break;  }
+   }
+   for(int i=len-1;i>=0;i--)
+   {res.push_back(temp[i]);}
+   return res;
+} 
